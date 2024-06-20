@@ -1,0 +1,25 @@
+﻿
+@model List<WatchViewModel>
+@{
+	ViewBag.Title = "All Watches";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<div class="row">
+    @foreach(var item in Model)
+    {
+<div class="card" style="width: 18rem;">
+
+  <img class="card-img-top" src="@item.imgUrl" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Brand Name: @item.BrandName</h5>
+    <h5 class="card-title">Watch Model: @item.WatchModel</h5>
+    <p class="card-text">Ref. Number: @item.ReferenceNumber</p>
+    <p class="card-text">Watch Price: @item.Price</p>
+    <a asp-controller="Watches" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+    <a asp-controller="Watches" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+  </div>
+        </div>
+    }
+</div>
